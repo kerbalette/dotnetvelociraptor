@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "cmdVelociraptor": {
+      "commandName": "Project",
+      "commandLineArgs": "--config api.config.yaml"
+    }
+  }
+}
