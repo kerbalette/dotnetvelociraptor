@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Grpc.Core;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
-using Google.Protobuf;
-using Google.Protobuf.Collections;
 using Grpc.Core.Utils;
 using Proto;
 using libVelociraptor.Models;
@@ -21,11 +13,18 @@ namespace libVelociraptor
         private readonly Configuration _configuration;
         private readonly Channel _channel;
 
-        public VqlApi(Configuration configuration)
+        public VqlApi(string configurationFilename)
         {
-            _configuration = configuration;
-            var options = SetupChannelOption("VelociraptorServer");
-            _channel = new Channel(_configuration.Target, _configuration.Port, _configuration.SslCredentials, options);
+            if (File.Exists(configurationFilename))
+            {
+                string config = File.ReadAllText(configurationFilename);
+                ConfigurationReader configurationReader = new ConfigurationReader(configurationFilename);
+                _configuration = configurationReader.Configuration;
+
+                var options = SetupChannelOption("VelociraptorServer");
+                _channel = new Channel(_configuration.Target, _configuration.Port, _configuration.SslCredentials, options);
+
+            }
         }
 
         public async Task<string> Query(string query)

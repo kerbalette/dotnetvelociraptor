@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using libVelociraptor.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;

@@ -13,14 +13,8 @@ namespace testsVelociraptor
         public async void Query_Test()
         {
             var configurationFile = @"api.config.yaml";
-            string config = File.ReadAllText(configurationFile);
+            VqlApi vqlApi = new VqlApi(configurationFile);
 
-            ConfigurationReader configurationReader = new ConfigurationReader(configurationFile);
-            Configuration configuration = configurationReader.Configuration;
-
-
-
-            VqlApi vqlApi = new VqlApi(configurationReader.Configuration);
             string selectstatement = "SELECT * FROM clients()";
             var response = await vqlApi.Query(selectstatement);
 
