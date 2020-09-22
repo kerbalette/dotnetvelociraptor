@@ -2,7 +2,7 @@
   "profiles": {
     "cmdVelociraptor": {
       "commandName": "Project",
-      "commandLineArgs": "--config api.config.yaml"
+      "commandLineArgs": "-c api.config.yaml -q \"SELECT * FROM clients()\""
     }
   }
 }

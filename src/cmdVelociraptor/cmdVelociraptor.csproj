@@ -10,4 +10,14 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\libVelociraptor\libVelociraptor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="api.config.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
