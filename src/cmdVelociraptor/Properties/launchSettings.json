@@ -2,7 +2,7 @@
   "profiles": {
     "cmdVelociraptor": {
       "commandName": "Project",
-      "commandLineArgs": "-c api.config.yaml -q \"SELECT * FROM clients()\""
+      "commandLineArgs": "-c api.config.yaml -q \"SELECT label(labels='andypandy', op='set', client_id=client_id FROM clients() WHERE client_id='C.da6a93c42a4ecdb3'\""
     }
   }
 }
