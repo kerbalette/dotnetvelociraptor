@@ -39,7 +39,7 @@ namespace libVelociraptor
             var apiClient = new API.APIClient(_channel);
             var streamResult = apiClient.Query(vqlCollectorArgs);
             var resultElement = await streamResult.ResponseStream.ToListAsync();
-            _channel.ShutdownAsync().Wait();
+            //_channel.ShutdownAsync().Wait();
 
             return resultElement[resultElement.Count - 1].Response;
         }
